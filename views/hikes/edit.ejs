@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>Update Skill</title>
+</head>
+<body>
+    <h1>Edit Hike</h1>
+    
+          <a href="/hikes/<%= hike.id %>"><%= hike.name %></a>
+          <form action="/hikes/<%= hike.id %>?_method=PUT"
+            class="edit-form" method="POST">
+            <label>Name:
+                <input type="text" name="hikeName" value="<%= hike.name %>">
+            </label><br>
+            <label>Description:
+                <input type="text" name="description" value="<%= hike.description %>">
+            </label><br>
+            <label>Difficulty:
+                <select name="difficulty">
+                  <option value="<%= hike.difficulty %>"selected></option>
+                  <option value="easy">Easy</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="challenging">Challenging</option>
+                </select>
+              </label><br>
+              <label>Date:
+                <input type="datetime-local" name="date" value ="<%= hike.date %>">
+              </label><br>
+              <label>Location:
+                <input type="string" name="location" value ="<%= hike.location %>" >
+              </label><br>
+            <button type="submit">Update Hike</button>
+          </form>
+        </li>
+    </ul>
+</body>
+</html>
