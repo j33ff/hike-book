@@ -5,19 +5,21 @@ function newHike(req, res){
     res.render('hikes/new');
 }
 
-function create(req, res){
-
-    const hike = new Hike(req.body);
-    hike.save(function(err) {
-    if (err) return res.render('hikes/new');
-    console.log(hike);
-    res.redirect('/hikes');
-  });
+async function create(req, res){
+    try {
+        const hike = new Hike(req.body);
+        await hike.save();
+        res.redirect('/hikes');
+    }
+    catch (err) {
+        res.send(err.message);
+    }
 }
 
 async function index(req, res){
     try {
         let hikes = await Hike.find({});
+        console.log(hikes);
         res.render('hikes/index', {
             hikes
         });
