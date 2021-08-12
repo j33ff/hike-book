@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
         required: true
     },
     favourites: {
-        type: [{type: mongoose.Schema.Types.ObjectId, ref:'hike'}]   
+        type: [{type: mongoose.Schema.Types.ObjectId, ref:'Hike'}]   
     },
     googleId: {
         type: String,
