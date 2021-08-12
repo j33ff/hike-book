@@ -4,17 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Google Icon Fonts used by Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Hikes</title>
 </head>
 <body>
+
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <a href="" class="brand-logo left">HikeBook</a>
+          <ul class="right">
+            <li>
+              <% if (user) { %>
+                  <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+              <% } else { %>
+                  <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+              <% } %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+<div class="container">
     <h1>Hikes</h1>
     <ul>
     <% hikes.forEach(function(h) { %>
         
           <li><a href="/hikes/<%= h.id %>">Hike Name: <%= h.name %></a></li>
           <li>Hike Date:<%= h.date %></li>
+          <form action="/users/<%= h.id%>/favourites" method="POST"><button type="submit">Add to Favourites</button></form>
+    
         
       <% }); %>
     </ul>
+</div>
+
 </body>
 </html>

@@ -5,13 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Hike</title>
+     <!-- Google Icon Fonts used by Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
+
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <a href="" class="brand-logo left">HikeBook</a>
+          <ul class="right">
+            <li>
+              <% if (user) { %>
+                  <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+              <% } else { %>
+                  <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+              <% } %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<div class="container">
     <h1>Hike</h1>
     <h3><%= hike.name %></h3>
     <h3>Description: <%= hike.description %></h3>
     <h3>Date: <%= hike.date %></h3>
     <h3>Location: <%= hike.location %></h3>    
     <a href="/hikes/edit/<%= hike.id %>">Edit Hike</a>
+</div>
+
 </body>
 </html>

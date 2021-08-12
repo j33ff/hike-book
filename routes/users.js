@@ -4,7 +4,11 @@ const usersCtrl = require('../controllers/users');
 
 
 router.get('/', usersCtrl.index);
-router.post('/login', usersCtrl.login);
-router.post('/register', usersCtrl.register);
+router.post("/:id/favourites");
+
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+  }
 
 module.exports = router;

@@ -2,7 +2,7 @@ const Hike = require('../models/hike');
 
 
 function newHike(req, res){
-    res.render('hikes/new');
+    res.render('hikes/new', {user: req.user});
 }
 
 async function create(req, res){

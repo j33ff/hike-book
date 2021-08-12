@@ -2,12 +2,15 @@ var express = require('express');
 var router = express.Router();
 const hikesCtrl = require('../controllers/hikes');
 
-
-router.get('/', hikesCtrl.index);
-router.get('/new', hikesCtrl.new);
-router.post('/', hikesCtrl.create);
-router.get('/edit/:id', hikesCtrl.showEdit);
-router.get('/:id', hikesCtrl.show);
-router.put('/:id', hikesCtrl.edit);
+function isLoggedIn(req, res, next) {
+  if ( req.isAuthenticated() ) return next();
+  res.redirect('/auth/google');
+}
+router.get('/', isLoggedIn, hikesCtrl.index);
+router.get('/new', isLoggedIn, hikesCtrl.new);
+router.post('/', isLoggedIn, hikesCtrl.create);
+router.get('/edit/:id', isLoggedIn, hikesCtrl.showEdit);
+router.get('/:id', isLoggedIn, hikesCtrl.show);
+router.put('/:id',isLoggedIn, hikesCtrl.edit);
 
 module.exports = router;

@@ -4,34 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+     <!-- Google Icon Fonts used by Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>New Hike</title>
 </head>
 <body>
- 
-<h2>Enter a New Hike</h2>
-<form action="/hikes" method="POST">
-  <label>Name:
-    <input type="text" name="name">
-  </label><br>
-  <label>Description:
-    <input type="text" name="description">
-  </label><br>
-  <label>Difficulty:
-    <select name="difficulty">
-      <option value="easy">Easy</option>
-      <option value="moderate">Moderate</option>
-      <option value="challenging">Challenging</option>
-    </select>
-  </label><br>
-  <label>Date:
-    <input type="datetime-local" name="date">
-  </label><br>
-  <label>Location:
-    <input type="string" name="location">
-  </label><br>
 
-  <input type="submit" value="Add Hike">
-</form>
+  <nav>
+    <div class="nav-wrapper teal accent-4">
+      <a href="" class="brand-logo left">HikeBook</a>
+      <ul class="right">
+        <li>
+          <% if (user) { %>
+              <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+          <% } else { %>
+              <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+          <% } %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container"> 
+    <h2>Enter a New Hike</h2>
+    <form action="/hikes" method="POST">
+    <label>Name:
+      <input type="text" name="name">
+    </label><br>
+    <label>Description:
+      <input type="text" name="description">
+    </label><br>
+    <label>Difficulty:
+      <select name="difficulty">
+        <option value="easy">Easy</option>
+        <option value="moderate">Moderate</option>
+        <option value="challenging">Challenging</option>
+      </select>
+    </label><br>
+    <label>Date:
+      <input type="datetime-local" name="date">
+    </label><br>
+    <label>Location:
+      <input type="string" name="location">
+    </label><br>
+    <input type="submit" value="Add Hike">
+    </form>
+</div>
 </body>
 </html>

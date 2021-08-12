@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/hikes', {
+// mongoose.connect('mongodb://localhost/hikes', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false,
+// });
+
+mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
