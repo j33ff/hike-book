@@ -21,7 +21,8 @@ async function index(req, res){
         let hikes = await Hike.find({});
         console.log(hikes);
         res.render('hikes/index', {
-            hikes
+            hikes,
+            user: req.user
         });
     } catch (err){
         console.log(err.message);
@@ -42,14 +43,16 @@ async function edit(req,res){
 async function showEdit(req, res){
     let hike = await Hike.findById(req.params.id);
     res.render("hikes/edit", {
-        hike 
+        hike,
+        user: req.user 
     });
 }
 
 async function show(req, res){
     let hike = await Hike.findById(req.params.id);
     await res.render("hikes/show", {
-        hike
+        hike,
+        user:req.user
     });
 }
 

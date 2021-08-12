@@ -8,9 +8,8 @@ module.exports = {
 
 function index(req, res, next) {
   res.render("users/index", {
-    users,
+    // users,
     user: req.user,
-    name: req.query.name,
   });
 }
 
@@ -27,7 +26,6 @@ async function addFavourite(req, res, next) {
         res.redirect("/");
     }
     
-
   }
 
 function delFavourite(req, res, next) {
