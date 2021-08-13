@@ -44,9 +44,9 @@
     <ul>
     <% userFavourites.forEach(function(f) { %>
         
-          <li><a href="/hikes/<%= f.id %>">Hike Name: <%= f.name %></a></li>
+          <li><h4><a href="/hikes/<%= f.id %>">Hike Name: <%= f.name %></a></h4></li>
           <li>Hike Date:<%= f.date %></li>
-          <form action="/users/<%= f.id%>/favourites/delete" method="POST"><button type="submit">Remove From Favourites</button></form>
+          <form action="/users/<%= f.id%>/favourites/delete" method="POST"><button class="my-20 favourite-btn btn waves-effect waves-light white-text" type="submit">Remove From Favourites</button></form>
                
       <% }); %>
     </ul>

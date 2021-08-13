@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Materialize CSS Framework -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <!-- JavaScript for Materialize -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
@@ -47,7 +47,7 @@
     <h3>Location: <%= hike.location %></h3> 
     <h3>Difficulty: <%= hike.difficulty %></h3>    
     <a href="/hikes/edit/<%= hike.id %>">Edit Hike</a>
-    <form action="/hikes/delete/<%= hike.id %>" method="POST"><button type="submit">Delete Hike</button></form>
+    <form action="/hikes/delete/<%= hike.id %>" method="POST"><button class="my-20 favourite-btn btn waves-effect waves-light white-text" type="submit">Delete Hike</button></form>
 </div>
 
 </body>
