@@ -6,3 +6,27 @@ body {
 a {
   color: #00B7FF;
 }
+
+.m-20 {
+  margin: 20px;
+}
+
+.mx-20 {
+  margin: 0 20px;
+}
+
+.my-20{
+  margin: 20px 0;
+}
+
+.p-20{
+  padding: 20px;
+}
+
+.px-20{
+  padding: 0 20px;
+}
+
+.py-20{
+  padding: 20px 0;
+}

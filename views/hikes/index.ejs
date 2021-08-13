@@ -43,9 +43,9 @@
     <ul>
     <% hikes.forEach(function(h) { %>
         
-          <li><a href="/hikes/<%= h.id %>">Hike Name: <%= h.name %></a></li>
+          <li><h5><a href="/hikes/<%= h.id %>">Hike Name: <%= h.name %></a></h5></li>
           <li>Hike Date:<%= h.date %></li>
-          <form action="/users/<%= h.id%>/favourites" method="POST"><button type="submit">Add to Favourites</button></form>
+          <form action="/users/<%= h.id%>/favourites" method="POST"><button class="my-20 favourite-btn btn waves-effect waves-light" type="submit">Add to Favourites</button></form>
     
         
       <% }); %>
