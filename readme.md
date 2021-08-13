@@ -19,6 +19,7 @@ HikeBook is a full stack application that enables users to add to a detailed dat
 - Node.js
 - Express.js
 - Mongoose
+- OAuth - Google login API
 - Materialize.css
 
 ## GETTING STARTED
