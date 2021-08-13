@@ -1,8 +1,10 @@
 ## HikeBook
 
-```
-HikeBook is a full stack application that enables users to add to a detailed database of hikes. Users can favourite hikes for their own custom list and have the ability to add, edit, or delete hikes based on their preferences. Enjoy and explore!
-```
+
+HikeBook is a full stack application that enables users to add to a detailed database of hikes.\ 
+
+Users can favourite hikes for their own custom list and have the ability to add, edit, or delete hikes based on their preferences. Enjoy and explore!
+
 
 ## SCREENSHOTS
 
@@ -19,6 +21,7 @@ HikeBook is a full stack application that enables users to add to a detailed dat
 - Node.js
 - Express.js
 - Mongoose
+- mongoDB
 - OAuth - Google login API
 - Materialize.css
 

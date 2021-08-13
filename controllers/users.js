@@ -1,4 +1,4 @@
-const { deleteOne } = require('../models/user');
+// const { deleteOne } = require('../models/user');
 const User = require('../models/user');
 const Hike = require('../models/hike');
 

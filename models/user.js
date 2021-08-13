@@ -1,12 +1,6 @@
 const mongoose = require("mongoose");
 
-// const favouriteSchema = new mongoose.Schema({
-//     text: String,
-//     hikeID: mongoose.Schema.Types.ObjectId, 
 
-// }, {
-//     timestamps: true
-// });
 
 const userSchema = new mongoose.Schema(
     {
