@@ -1,40 +1,57 @@
+const { deleteOne } = require('../models/user');
 const User = require('../models/user');
+const Hike = require('../models/hike');
 
 module.exports = {
   index,
   addFavourite,
-  delFavourite
+  delFavourite,
+  showFavourites
 };
 
 function index(req, res, next) {
   res.render("users/index", {
-    // users,
     user: req.user,
   });
 }
 
+async function showFavourites(req, res, next){
+  
+  try {
+    let hikes = await Hike.find({_id: {$in: req.user.favourites}});
+    res.render("users/index", {
+      user: req.user,
+      userFavourites: hikes
+    });
+  } catch(err) {
+      console.log(err.message);
+      res.redirect("/");
+}  
+}
 
 
 async function addFavourite(req, res, next) {
     try {
-        let user = User.find({googleId:req.user.googleId});
-        user.favourites.push(req.params.id);
-        await user.save();
+        let user = await User.updateOne({googleId:req.user.googleId},
+          {$push: {favourites: req.params.id}},
+        );
         res.redirect("/");
     } catch(err) {
         console.log(err.message);
         res.redirect("/");
-    }
-    
+    }  
   }
 
-function delFavourite(req, res, next) {
-  User.findOne({'favourites._id': req.params.id}, function(err, user) {
-    user.favourites.id(req.params.id).remove();
-    user.save(function(err) {
-      res.redirect('/users');
-    });
-  });
+async function delFavourite(req, res, next) {
+  try {
+    let user = await User.updateOne({googleId:req.user.googleId},
+      {$pull: {favourites: req.params.id}},
+      );
+    res.redirect("/");
+} catch(err) {
+    console.log(err.message);
+    res.redirect("/");
+}  
 }
 
 

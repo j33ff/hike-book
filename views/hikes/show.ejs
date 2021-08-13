@@ -17,7 +17,7 @@
 
     <nav>
         <div class="nav-wrapper teal accent-4">
-          <a href="" class="brand-logo left">HikeBook</a>
+          <a href="/hikes" class="brand-logo left">HikeBook</a>
           <ul class="right">
             <li>    
               <a href="/hikes"><i class="left"></i>View Hikes</a>
@@ -25,6 +25,9 @@
           <li>
               <a href="/hikes/new"><i class="left"></i>Add Hike</a>
           </li>
+          <li>
+            <a href="/users/favourites"><i class="left"></i>My Favourites</a>
+        </li>
             <li>
               <% if (user) { %>
                   <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
@@ -41,8 +44,10 @@
     <h3><%= hike.name %></h3>
     <h3>Description: <%= hike.description %></h3>
     <h3>Date: <%= hike.date %></h3>
-    <h3>Location: <%= hike.location %></h3>    
+    <h3>Location: <%= hike.location %></h3> 
+    <h3>Difficulty: <%= hike.difficulty %></h3>    
     <a href="/hikes/edit/<%= hike.id %>">Edit Hike</a>
+    <form action="/hikes/delete/<%= hike.id %>" method="POST"><button type="submit">Delete Hike</button></form>
 </div>
 
 </body>

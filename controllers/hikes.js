@@ -19,7 +19,6 @@ async function create(req, res){
 async function index(req, res){
     try {
         let hikes = await Hike.find({});
-        console.log(hikes);
         res.render('hikes/index', {
             hikes,
             user: req.user
@@ -33,6 +32,17 @@ async function edit(req,res){
 
     try {
         await Hike.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect("/hikes");
+    }  catch (err){
+    console.log(err.message);
+}
+
+}
+
+async function deleteHike(req,res){
+
+    try {
+        await Hike.findByIdAndRemove(req.params.id, req.body);
         res.redirect("/hikes");
     }  catch (err){
     console.log(err.message);
@@ -62,5 +72,6 @@ module.exports = {
     create,
     edit,
     showEdit,
-    show
+    show,
+    delete: deleteHike
 }
