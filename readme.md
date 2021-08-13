@@ -6,9 +6,9 @@ HikeBook is a full stack application that enables users to add to a detailed dat
 
 ## SCREENSHOTS
 
-![Hike List](./images/screenshots/hike-list.png)
-![Add Hikes](./images/screenshots/add-hike.png)
-![Edit Hikes](./images/screenshots/edit-hike.png)
+![Hike List](./public/images/screenshots/hike-list.png)
+![Add Hikes](./public/images/screenshots/add-hike.png)
+![Edit Hikes](./public/images/screenshots/edit-hike.png)
 
 ## TECHNOLOGIES USED
 
